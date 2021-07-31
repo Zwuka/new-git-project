@@ -1,20 +1,11 @@
 # This is a sample Python script.
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+class smart_key(object):
+    def __init__(self, obj):
+        self.obj = obj
+    def __lt__(self, other):
+        return (other.obj + self.obj) < (self.obj+other.obj)
 
+join_to_bigges = lambda x: ''.join(sorted(map(str,x), key=smart_key))
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
-
-import numpy as np
-
-x1 = np.a
+print(join_to_bigges([5,2,1,8,9]))
